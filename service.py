@@ -11,7 +11,7 @@ def get_user_from_db(*,username: str, db: Session):
     return {"username":user.username}
 
 
-def create_user_in_db(*,data: UserCreateSchema, db: Session):
+def create_user_in_db(*,data: UserCreateSchema, db: Session): 
     new_user = User(username=data.username,password=data.password)
     db.add(new_user)
     db.commit()
@@ -23,7 +23,7 @@ def change_password_in_db(*,current_username:str,data: UserUpdateSchema,db: Sess
     is_correct_user = db.query(User).filter_by(username=current_username,password=data.password).first()
     if not is_correct_user:
         raise UserNotFoundException()
-    db.query(User).update({"password":data.new_password})
+    db.query(User).filter (User.username==current_username).update({"password":data.new_password}) #TODO change for username
     db.commit()
     return {"msg":"password is changed"}
     
