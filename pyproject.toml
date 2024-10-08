@@ -1,0 +1,22 @@
+[tool.poetry]
+name = "proj2"
+version = "1.0.0"
+description = "This is a school project"
+authors = ["Murox"]
+license = "MIT"
+readme = "README.md"
+package-mode = false
+
+[tool.poetry.dependencies]
+python = "3.12.*"
+fastapi = "0.115.0"
+SQLAlchemy = "2.0.35"
+uvicorn = "0.31.0"
+psycopg2 = "2.9.9"
+python-decouple= "3.8"
+
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
