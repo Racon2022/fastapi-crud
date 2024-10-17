@@ -14,3 +14,8 @@ class DetailedHTTPException(HTTPException):
 class UserNotFoundException(DetailedHTTPException):
     STATUS_CODE = status.HTTP_404_NOT_FOUND
     DETAIL = "user is not found"
+
+class UserIsExists(DetailedHTTPException):
+    STATUS_CODE = status.HTTP_400_BAD_REQUEST
+    DETAIL = "user is not found"
+

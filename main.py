@@ -1,7 +1,7 @@
 from fastapi import FastAPI, Depends
 from db import get_db
 from sqlalchemy.orm import Session
-from schema import *
+from scheme import *
 from service import *
 app = FastAPI()
 
@@ -24,7 +24,7 @@ def create_user(item: UserCreateSchema, db: Session = Depends(get_db)):
 
 @app.put("/password")
 def change_password(username: str,item:UserUpdateSchema, db: Session = Depends(get_db)):
-    message = change_password_in_db(current_username = username,data=item,db=db)
+    message = change_password_in_db(user_name = username,data=item,db=db)
     return message
 
 
